@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Wikipedia-style Page</title><!DOCTYPE html>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Style Selector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body >
+ <label for="fontSelector">Select Font Style:</label>
+  <select id="fontSelector">
+    <option value="Arial, sans-serif">Arial</option>
+    <option value="Georgia, serif">Georgia</option>
+    <option value="Times New Roman, serif">Times New Roman</option>
+    <option value="Courier New, monospace">Courier New</option>
+    <option value="Verdana New, monospace">Verdana  New</option>
+    <option value="Tahoma New, monospace">Tahoma New</option>
+    <option value="Calibri New, monospace">Calibri  New</option>
+    
+  </select>
+
+  <button onclick="changeFont()">Apply Font</button>
+
+  <script>
+    function changeFont() {
+      // Get the selected font value
+      var selectedFont = document.getElementById("fontSelector").value;
+
+      // Apply the selected font to the body
+      document.body.style.fontFamily = selectedFont;
+    }
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Light mode styles */
+    body.light-mode {
+      background-color: #ffffff;
+      color: #fc0000;
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    /* Toggle switch styles */
+    .toggle-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+
+    .toggle-label {
+      display: inline-block;
+      margin-right: 5px;
+      color: #ffffff;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <!-- Dark mode toggle switch -->
+  <div class="toggle-container">
+    <label class="toggle-label">Dark Mode</label>
+    <label class="toggle-switch">
+      <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+      <span class="toggle-slider"></span>
+    </label>
+  </div>
+
+  <script>
+    // JavaScript function to toggle between light and dark mode
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle("dark-mode");
+      body.classList.toggle("light-mode");
+    }
+  </script>
+
+  <!-- Your page content goes here -->
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <style>
+    /* CSS for basic styling, adjust as needed */
+    body {
+      font-family: courier new, sans-serif;
+
+      margin: 50px;
+      line-height: 1.6;
+    }
+    nav {
+      float: left;
+      width: 20%;
+      padding: 20px;
+    }
+    article {
+      float: left;
+      width: 75%;
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Wikipedia-style Page</h1>
+   
+    <div>
+      <label for="fontSize">Text Size:</label>
+      <input type="range" id="fontSize" min="10" max="24" step="1" value="16">
+
+      <label for="textColor">Text Color:</label>
+      <input type="color" id="textColor" value="#333">
+
+      <label for="linkColor">Link Color:</label>
+      <input type="color" id="linkColor" value="#007bff">
+
+      <label for="visitedColor">Visited Link Color:</label>
+      <input type="color" id="visitedColor" value="#purple">
+
+      <label for="redLinkColor">Red Link Color:</label>
+      <input type="color" id="redLinkColor" value="#ff0000">
+<br><br><br>
+  </div>
+<div jsname="DFrD7b" class="pkt1Wd byDyWd N8ZFrc" style="opacity: 1;"></div>
+  <script>
+      // Apply user preferences on page load
+      function applyUserPreferences() {
+          const fontSize = localStorage.getItem('fontSize') || '16';
+          const textColor = localStorage.getItem('textColor') || '#333';
+          const linkColor = localStorage.getItem('linkColor') || '#007bff';
+          const visitedColor = localStorage.getItem('visitedColor') || '#purple';
+          const redLinkColor = localStorage.getItem('redLinkColor') || '#ff0000';
+
+          document.body.style.fontSize =`${fontSize}px`;
+          document.body.style.color = textColor;
+          document.querySelector('a').style.color = linkColor;
+          document.querySelector('a:visited').style.color = visitedColor;
+          document.querySelector('.red-link').style.color = redLinkColor;
+      }
+
+      // Update preferences on user interaction
+      function updateUserPreferences() {
+          const fontSize = document.getElementById('fontSize').value;
+          const textColor = document.getElementById('textColor').value;
+          const linkColor = document.getElementById('linkColor').value;
+          const visitedColor = document.getElementById('visitedColor').value;
+          const redLinkColor = document.getElementById('redLinkColor').value;
+
+          localStorage.setItem('fontSize', fontSize);
+          localStorage.setItem('textColor', textColor);
+          localStorage.setItem('linkColor', linkColor);
+          localStorage.setItem('visitedColor', visitedColor);
+          localStorage.setItem('redLinkColor', redLinkColor);
+
+          applyUserPreferences();
+      }
+
+      // Attach event listeners
+      document.getElementById('fontSize').addEventListener('input', updateUserPreferences);
+      document.getElementById('textColor').addEventListener('input', updateUserPreferences);
+      document.getElementById('linkColor').addEventListener('input', updateUserPreferences);
+      document.getElementById('visitedColor').addEventListener('input', updateUserPreferences);
+      document.getElementById('redLinkColor').addEventListener('input', updateUserPreferences);
+
+      // Apply user preferences on page load
+      applyUserPreferences();
+  </script>
+  <label for="search">Enter a Wikipedia page title:</label>
+  <input type="text" id="search" placeholder="Type here">
+  <button onclick="searchWikipedia()">Search</button>
+  <div id="result"></div>
+
+  <script>
+    async function searchWikipedia() {
+      const searchTerm = document.getElementById('search').value;
+      if (!searchTerm) {
+        alert('Please enter a search term');
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(searchTerm)}`);
+        const data = await response.json();
+
+        if (data.extract) {
+          document.getElementById('result').innerHTML = `
+            <h2>${data.title}</h2>
+            <p>${data.extract}</p>
+          `;
+        } else {
+          document.getElementById('result').innerHTML = 'No information found';
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+  </script>
+ <input type="text" id="searchBar" placeholder="Speak your search term" readonly>
+  <button onclick="startListening()">Start Listening</button>
+  
+  <script>
+    const searchBar = document.getElementById("searchBar");
+
+    function startListening() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      
+      recognition.onresult = function(event) {
+        const lastResultIndex = event.results.length - 1;
+        const transcript = event.results[lastResultIndex][0].transcript;
+        searchBar.value = transcript;
+      };
+
+      recognition.start();
+    }
+  </script>
+
+</body>
+</html>
+<br><br>
+<a href="file:///C:/java%20kunvitha/hi.html">
+    
+    <button onclick="speakText()">Click to Report</button>
+<a>
+    <script>
+        function speakText() {
+            // Get the text to be read
+            var text = document.getElementById('textToRead').innerText;
+
+            // Create a new SpeechSynthesisUtterance instance
+            var utterance = new SpeechSynthesisUtterance(text);
+
+            // Use the default speech synthesis voice
+            utterance.voice = speechSynthesis.getVoices()[0];
+
+            // Speak the text
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#history">History</a></li>
+      <li><a href="#content">Content</a></li>
+    </ul>
+  </nav>
+
+      <img src="https://1000logos.net/wp-content/uploads/2021/04/Wikipedia-logo.png" id="image" />
+      
+      <div>
+        <label for="fontSize">Text Size:</label></div>
+      <button onclick="zoomIn()">Zoom In</button>
+      <button onclick="zoomOut()">Zoom Out</button>
+  
+      <script>
+          var image = document.getElementById("image");
+          var scale = 1;
+  
+          function zoomIn() {
+              scale += 0.1;
+              image.style.transform = "scale(" + scale + ")";
+          }
+  
+          function zoomOut() {
+              scale -= 0.1;
+              image.style.transform = "scale(" + scale + ")";
+          }
+      </script>
+    </section>
+  </article> 
+
+
+  <footer>
+    <p>&copy; 2023 Wikipedia-style Page</p>
+  </footer>
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>Zoom In and Out</title>
+    <style>
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
+</body>
+</html>
